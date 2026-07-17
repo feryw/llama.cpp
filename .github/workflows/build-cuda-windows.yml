@@ -73,12 +73,16 @@ jobs:
             -DGGML_BACKEND_DL=ON ^
             -DGGML_CPU_ALL_VARIANTS=ON ^
             -DGGML_CUDA=ON ^
-            -DGGML_RPC=ON ^
-            -DGGML_CUDA_CUB_3DOT2=ON ^
-            -DCMAKE_CUDA_FLAGS="--allow-unsupported-compiler"
+            -DGGML_RPC=ON
+            #-DGGML_CUDA_CUB_3DOT2=ON ^
+            #-DCMAKE_CUDA_FLAGS="--allow-unsupported-compiler"
           set /A NINJA_JOBS=%NUMBER_OF_PROCESSORS%-1
-          cmake --build build --config Release -j %NINJA_JOBS% -t ggml
-          cmake --build build --config Release
+          cmake --build build --config Release -j %NINJA_JOBS% -t ^
+            llama-cli ^
+            llama-mtmd-cli ^
+            llama-server ^
+            llama-gguf-split ^
+            llama-bench
 
       - name: ccache-clear
         uses: ./.github/actions/ccache-clear
