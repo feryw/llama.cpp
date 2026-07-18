@@ -85,8 +85,8 @@ jobs:
           echo "ui_version=${version}" >> $GITHUB_OUTPUT
 
   macos-cpu:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
     strategy:
       matrix:
         include:
@@ -167,8 +167,8 @@ jobs:
           name: llama-bin-macos-${{ matrix.build }}.tar.gz
 
   ubuntu-cpu:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
     strategy:
       matrix:
         include:
@@ -252,8 +252,8 @@ jobs:
           name: llama-bin-ubuntu-${{ matrix.build }}.tar.gz
 
   ubuntu-vulkan:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     strategy:
       matrix:
@@ -338,8 +338,8 @@ jobs:
           name: llama-bin-ubuntu-vulkan-${{ matrix.build }}.tar.gz
 
   android-arm64:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     runs-on: ubuntu-latest
 
@@ -431,8 +431,8 @@ jobs:
           name: llama-bin-android-arm64.tar.gz
 
   ubuntu-24-openvino:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     runs-on: ubuntu-24.04
 
@@ -550,8 +550,8 @@ jobs:
           name: llama-bin-ubuntu-openvino-${{ env.OPENVINO_VERSION_MAJOR }}-x64.tar.gz
 
   windows-openvino:
+    if: false
     needs: [check-release]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     runs-on: windows-2022
 
@@ -933,8 +933,8 @@ jobs:
           name: cudart-llama-bin-win-cuda-${{ matrix.cuda }}-x64.zip
 
   windows-sycl:
+    if: false
     needs: [check-release]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     runs-on: windows-2022
 
@@ -1043,8 +1043,8 @@ jobs:
           name: llama-bin-win-sycl-x64.zip
 
   ubuntu-24-sycl:
+    if: false
     needs: [check-release]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     strategy:
       matrix:
@@ -1134,8 +1134,8 @@ jobs:
           name: llama-bin-ubuntu-sycl-${{ matrix.build }}-x64.tar.gz
 
   ubuntu-22-rocm:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     runs-on: ubuntu-22.04
 
@@ -1255,8 +1255,8 @@ jobs:
           name: llama-bin-ubuntu-rocm-${{ env.ROCM_VERSION_SHORT }}-${{ matrix.build }}.tar.gz
 
   windows-hip:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
 
     runs-on: windows-2022
 
@@ -1379,8 +1379,8 @@ jobs:
           name: llama-bin-win-hip-${{ matrix.name }}-x64.zip
 
   ios-xcode:
+    if: false
     needs: [check-release, get-version]
-    if: ${{ needs.check-release.outputs.should_release == 'true' }}
     runs-on: macos-26
 
     steps:
